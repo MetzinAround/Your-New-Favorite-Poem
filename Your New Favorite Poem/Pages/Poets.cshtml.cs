@@ -1,20 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
+using Your_New_Favorite_Poem.Models;
 
-namespace Your_New_Favorite_Poem.Pages.Shared
+namespace Your_New_Favorite_Poem.Pages
 {
     public class PoetsModel : PageModel
     {
-        private readonly ILogger<PoetsModel> _logger;
 
-        private PoetsModel(ILogger<PoetsModel> logger) //don't know why changing this to public doesn't work even though that's how it looks in Privacy.cshtml.cs
+
+
+        public PoetsModel(ILogger<PoetsModel> logger) //don't know why changing this to public doesn't work even though that's how it looks in Privacy.cshtml.cs
         {
-            _logger = logger;
+            Logger = logger;
         }
 
-        internal ILogger<PoetsModel> Logger => _logger;
+
+        internal ILogger<PoetsModel> Logger { get; }
 
         public void OnGet()
         {
+
         }
     }
 }// absolutely no idea what I've done here. I copied the code from the privacy.cshtml.cs and then clicked lightbulbs until there were no problems. 
