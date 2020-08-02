@@ -93,10 +93,10 @@ body {
     width: 50%;
     padding: 5%;
     margin: 5%;
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     font-family: Helvetica;
-    //word-wrap: break-word;
+    float: left;
 }
 
 body {
@@ -110,4 +110,26 @@ body {
     margin: 5%;
     padding: 5%;
     font-family: Helvetica;
+}
+
+.button {
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  
+}
+
+.buttonmove{
+    text-align: center;
+    //margin: 0 auto;
+}
+
+.authorPicture img {
+    width: 21EM;
+    height: 15REM;
+    float: right;
+    margin: 4rem 0rem 0rem 0rem;
 }

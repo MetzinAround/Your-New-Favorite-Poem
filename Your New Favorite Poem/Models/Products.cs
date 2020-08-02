@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 
 namespace Your_New_Favorite_Poem.Models
 {
-    internal class Products
+    public class Poem
     {
-        public string Name { get; set; }
-        public string Country { get; set; }
-        public string Poems { get; set; }
+        public string Author { get; set; }
+        public string Title { get; set; }
+        public Uri URL { get; set; }
     }
+   
 
 }

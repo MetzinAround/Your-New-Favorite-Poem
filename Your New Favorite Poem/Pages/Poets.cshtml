@@ -5,16 +5,15 @@
 }
 
 <h1>Poets</h1>
-<p> This page is a work in progress! Come back later! </p>
+<p> List of all currently featured poets on the page! </p>
 <nav>
     <!-- fullist of poets-->
     <ul>
-        <li><a asp-area="" asp-page="/Index" asp-fragment="Ocean Vuong">Ocean Vuong</a></li>
-        <li><a asp-area="" asp-page="/Index" asp-fragment="Layli Long Soldier">Layli Long Soldier</a></li>
-        <li><a asp-area="" asp-page="/Index" asp-fragment="Mary Oliver">Mary Oliver</a></li>
-        <li><a asp-area="" asp-page="/Index" asp-fragment="Terrance Hayes">Terrance Hayes</a></li>
-        <li><a asp-area="" asp-page="/Index" asp-fragment="Shay Alexi">Shay Alexi</a></li>
-        <li><a asp-area="" asp-page="/Index" asp-fragment="Marci Calabretta Cancio-Bello">Marci Calabretta Cancio-Bello</a></li>
-        <li><a asp-area="" asp-page="/Index" asp-fragment="Martín Espada">Martín Espada</a></li>
+        @foreach (var author in Your_New_Favorite_Poem.Constants.PoetsConstants.PoemList.Select(x => x.Author).Distinct())
+        {
+
+            <li><a asp-area="" asp-page="/Index" asp-fragment=@author>@author</a></li>
+
+        }
     </ul>
 </nav>
