@@ -3,17 +3,21 @@
 @{
     ViewData["Title"] = "Poets";
 }
+<head>
+    <title>Poets</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <p> List of all currently featured poets on the page! </p>
+    <nav>
+        <!-- fullist of poets-->
+        <ul>
+            @foreach (var author in Your_New_Favorite_Poem.Constants.PoetsConstants.PoemList.Select(x => x.Author).Distinct())
+            {
 
-<h1>Poets</h1>
-<p> List of all currently featured poets on the page! </p>
-<nav>
-    <!-- fullist of poets-->
-    <ul>
-        @foreach (var author in Your_New_Favorite_Poem.Constants.PoetsConstants.PoemList.Select(x => x.Author).Distinct())
-        {
+                <li><a asp-area="" asp-page="/Index" asp-fragment=@author>@author</a></li>
 
-            <li><a asp-area="" asp-page="/Index" asp-fragment=@author>@author</a></li>
-
-        }
-    </ul>
-</nav>
+            }
+        </ul>
+    </nav>
+</body>
