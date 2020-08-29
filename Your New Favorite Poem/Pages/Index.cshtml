@@ -19,6 +19,8 @@
             </p>
 
         </section>
+
+        
         <div class="buttonmove">
             <form method="post" asp-page="Index">
                 <input class="button" type="submit" value="Generate Random Poem" asp-page-handler="RandomPoem" formtarget="_blank" />
@@ -27,9 +29,9 @@
         <!--Ocean Vuong Poems-->
         <section class="poets" id="Ocean Vuong">
             <h2>Ocean Vuong Poems</h2>
-            <br />
+            <br/>
             <ul>
-                @foreach (var poem in Your_New_Favorite_Poem.Constants.PoetsConstants.PoemList.Where(x => x.Author is "Ocean Vuong"))
+                @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Ocean Vuong"))
                 {
 
                     <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
@@ -48,7 +50,7 @@
             <h2>Layli Long Soldier</h2>
             <br />
             <ul>
-                @foreach (var poem in Your_New_Favorite_Poem.Constants.PoetsConstants.PoemList.Where(x => x.Author is "Layli Long Soldier"))
+                @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Layli Long Soldier"))
                 {
 
                     <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
@@ -65,7 +67,7 @@
             <h2>Mary Oliver</h2>
             <br />
             <ul>
-                @foreach (var poem in Your_New_Favorite_Poem.Constants.PoetsConstants.PoemList.Where(x => x.Author is "Mary Oliver"))
+                @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Mary Oliver"))
                 {
 
                     <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
@@ -82,7 +84,7 @@
             <h2>Terrance Hayes</h2>
             <br />
             <ul>
-                @foreach (var poem in Your_New_Favorite_Poem.Constants.PoetsConstants.PoemList.Where(x => x.Author is "Terrance Hayes"))
+                @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Terrance Hayes"))
                 {
 
                     <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
@@ -100,7 +102,7 @@
             <h2>Shay Alexi</h2>
             <br />
             <ul>
-                @foreach (var poem in Your_New_Favorite_Poem.Constants.PoetsConstants.PoemList.Where(x => x.Author is "Shay Alexi"))
+                @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Shay Alexi"))
                 {
 
                     <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
@@ -117,7 +119,7 @@
             <h2> Marci Calabretta Cancio-Bello </h2>
             <br />
             <ul>
-                @foreach (var poem in Your_New_Favorite_Poem.Constants.PoetsConstants.PoemList.Where(x => x.Author is "Marci Calabretta Cancio-Bello"))
+                @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Marci Calabretta Cancio-Bello"))
                 {
 
                     <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
@@ -135,7 +137,7 @@
             <h2>Martín Espada</h2>
             <br />
             <ul>
-                @foreach (var poem in Your_New_Favorite_Poem.Constants.PoetsConstants.PoemList.Where(x => x.Author is "Martín Espada"))
+                @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Martín Espada"))
                 {
 
                     <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
