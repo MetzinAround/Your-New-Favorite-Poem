@@ -3,27 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Your_New_Favorite_Poem</RootNamespace>
-	<Nullable>enable</Nullable>  
+	<Nullable>enable</Nullable>
+	<UserSecretsId>75753d1d-348f-47a6-ac6c-d9f2b5c2fb53</UserSecretsId>  
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="NewFolder1\**" />
-    <Compile Remove="NewFolder2\**" />
-    <Content Remove="NewFolder1\**" />
-    <Content Remove="NewFolder2\**" />
-    <EmbeddedResource Remove="NewFolder1\**" />
-    <EmbeddedResource Remove="NewFolder2\**" />
-    <None Remove="NewFolder1\**" />
-    <None Remove="NewFolder2\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Pages\Privacy.cshtml.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="Pages\Privacy.cshtml" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />

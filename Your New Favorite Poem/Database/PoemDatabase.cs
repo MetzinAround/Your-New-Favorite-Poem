@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Your_New_Favorite_Poem.Constants;
@@ -11,7 +12,7 @@ namespace Your_New_Favorite_Poem.Database
 {
     public class PoemDatabase
     {
-        readonly static string _connectionString = Environment.GetEnvironmentVariable("MYSQLCONNSTR_localdb") ?? string.Empty;
+        readonly static string _connectionString = GetConnectionString();
 
         public List<Poem> GetAllPoems(Func<Poem, bool> wherePredicate)
         {
@@ -35,8 +36,7 @@ namespace Your_New_Favorite_Poem.Database
 
             async Task<Poem> insertPoemFunction(PoemDatabaseContext dataContext)
             {
-                if (string.IsNullOrWhiteSpace(poem.Id))
-                    poem.Id = Guid.NewGuid().ToString();
+                poem.Id = Guid.NewGuid();
 
                 poem.CreatedAt = DateTimeOffset.UtcNow;
                 poem.UpdatedAt = DateTimeOffset.UtcNow;
@@ -117,20 +117,51 @@ namespace Your_New_Favorite_Poem.Database
             }
         }
 
+        //https://stackoverflow.com/a/43740589/13741035
+        static string GetConnectionString()
+        {
+            var connectionStringFromEnvironmentVariable = Environment.GetEnvironmentVariable("MYSQLCONNSTR_localdb") ?? string.Empty;
+            var connArray = Regex.Split(connectionStringFromEnvironmentVariable, ";");
+
+            var connectionstring = string.Empty;
+            for (int i = 0; i < connArray.Length; i++)
+            {
+
+                if (i is 1)
+                {
+                    string[] datasource = Regex.Split(connArray[i], ":");
+                    connectionstring += datasource[0] + string.Format(";port={0};", datasource[1]);
+                }
+                else
+                {
+                    connectionstring += connArray[i] + ";";
+                }
+            }
+
+            return connectionstring;
+        }
+
         class PoemDatabaseContext : DbContext
         {
             public PoemDatabaseContext()
             {
                 Database.EnsureCreated();
-                if( !Poems.Any())
+                if (!Poems.Any())
                 {
                     Poems?.AddRange(PoemsConstants.PoemList);
+                    SaveChanges();
                 }
             }
 
             public DbSet<Poem>? Poems { get; set; }
 
             protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseMySQL(_connectionString);
+            protected override void OnModelCreating(ModelBuilder modelBuilder)
+            {
+                modelBuilder.Entity<Poem>().Property(b => b.CreatedAt).HasDefaultValue(DateTimeOffset.UtcNow);
+                modelBuilder.Entity<Poem>().Property(b => b.UpdatedAt).HasDefaultValue(DateTimeOffset.UtcNow);
+
+            }
         }
     }
 }
