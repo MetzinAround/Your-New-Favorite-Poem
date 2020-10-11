@@ -12,7 +12,7 @@
     <nav>
         <!-- fullist of poets-->
         <ul>
-            @foreach (var author in Model.PoemsFromDatabase.Select(x => x.Author).Distinct())
+            @foreach (var author in Model.PoemsFromDatabase.Where(x => x.IsVerified).Select(x => x.Author).Distinct())
             {
 
                 <li><a asp-area="" asp-page="/Index" asp-fragment=@author>@author</a></li>

@@ -29,6 +29,7 @@ namespace Your_New_Favorite_Poem.Models
         public DateTimeOffset CreatedAt { get; set; }
         [DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.Computed)]
         public DateTimeOffset UpdatedAt { get; set; }
+        public bool IsVerified { get; set; } = false;
 
     }
 
