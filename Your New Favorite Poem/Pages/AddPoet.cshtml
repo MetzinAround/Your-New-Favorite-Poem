@@ -1,0 +1,28 @@
+﻿@page
+@model Your_New_Favorite_Poem.Pages.AddPoetModel
+@{
+    ViewData["Title"] = "Add a Poet";
+}
+<head>
+    <title>Your New Favorite Poem</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <form  method="post" asp-page="AddPoet">
+        <section class="Author">
+            <label for="Author">What is the name of the poet?</label>
+            <input type="text" name="author" id="author">
+        </section>
+        <section class="Poem">
+            <label for="Poem">What is the url for the poem?</label>
+            <input type="text" name="poem" id="poem">
+        </section>
+        <section class="PoemName">
+            <label for="PoemName">What is the name of the poem?</label>
+            <input type="text" name="poemName" id="poemName">
+        </section>
+        <section class="submission">
+            <input type="submit" value="Submit Poem" asp-page-handler="Submit">
+        </section>
+    </form>
+</body>
