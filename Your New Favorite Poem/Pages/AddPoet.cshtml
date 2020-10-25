@@ -3,10 +3,6 @@
 @{
     ViewData["Title"] = "Add a Poet";
 }
-<head>
-    <title>Your New Favorite Poem</title>
-    <link href="~/css/site.css" rel="stylesheet" />
-</head>
 <body>
     <form  method="post" asp-page="AddPoet">
         <section class="Author">
@@ -25,4 +21,8 @@
             <input type="submit" value="Submit Poem" asp-page-handler="Submit">
         </section>
     </form>
+
+    <section class="thanks">
+        <h1> @Model.SubmissionResult </h1>
+    </section>
 </body>

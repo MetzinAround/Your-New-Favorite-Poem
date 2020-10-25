@@ -4,152 +4,152 @@
     ViewData["Title"] = "Home page";
 }
 
-    <head>
-        <title>Your New Favorite Poem</title>
-        <link href="~/css/site.css" rel="stylesheet" />
-    </head>
-    <body>
-        <section class="text-center" id="Banner">
-            <h1 class="display-2">Welcome to Your New Favorite Poem</h1>
+<head>
+    <title>Your New Favorite Poem</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="text-center" id="Banner">
+        <h1 class="display-2">Welcome to Your New Favorite Poem</h1>
 
 
-            <p>
-                This website is a place to discover new poets, the type of poets you wouldn't necessarily find in your English class.
-                They're worthy of a look and especially worthy of supporting.
-            </p>
-            <p>You can find the source code <a href="https://github.com/MetzinAround/Your-New-Favorite-Poem" target="_blank">here!</a></p>
+        <p>
+            This website is a place to discover new poets, the type of poets you wouldn't necessarily find in your English class.
+            They're worthy of a look and especially worthy of supporting.
+        </p>
+        <p>You can find the source code <a href="https://github.com/MetzinAround/Your-New-Favorite-Poem" target="_blank">here!</a></p>
 
-</section>
-
-        
-        <div class="buttonmove">
-            <form method="post" asp-page="Index">
-                <input class="button" type="submit" value="Generate Random Poem" asp-page-handler="RandomPoem" formtarget="_blank" />
-            </form>
-        </div>
-        <!--Ocean Vuong Poems-->
-        <section class="poets" id="Ocean Vuong">
-            <h2>Ocean Vuong Poems</h2>
-            <br/>
-            <ul>
-                @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Ocean Vuong"))
-                {
-
-                    <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
-                }
-            </ul>
-        </section>
+    </section>
 
 
-        <section class="authorPicture">
-            <img src="https://www.thenation.com/wp-content/uploads/2019/12/Ocean-Vuong-1-credit-Peter-Bienkowski.jpg" alt-text="Picure of the poet Ocean Vuong. He is sitting and smiling in a blue sweater. " />
-        </section> 
+    <div class="buttonmove">
+        <form method="post" asp-page="Index">
+            <input class="button" type="submit" value="Generate Random Poem" asp-page-handler="RandomPoem" formtarget="_blank" />
+        </form>
+    </div>
+    <!--Ocean Vuong Poems-->
+    <section class="poets" id="Ocean Vuong">
+        <h2>Ocean Vuong Poems</h2>
+        <br />
+        <ul>
+            @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Ocean Vuong"))
+            {
 
-        <!-- Layli Long Soldier Poems-->
-        <section class="poets" id="Layli Long Soldier">
-
-            <h2>Layli Long Soldier</h2>
-            <br />
-            <ul>
-                @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Layli Long Soldier"))
-                {
-
-                    <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
-                }
-            </ul>
-        </section>
-
-        <section class="authorPicture">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Layli_Long_Soldier_172902.jpg/330px-Layli_Long_Soldier_172902.jpg" alt-text="Picure of the poet Layli Long Soldier. She is standing behind a podium in a black and white shawl giving a speech " />
-        </section>
-
-        <!-- Mary Oliver Poems-->
-        <section class="poets" id="Mary Oliver">
-            <h2>Mary Oliver</h2>
-            <br />
-            <ul>
-                @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Mary Oliver"))
-                {
-
-                    <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
-                }
-            </ul>
-        </section>
-
-        <section class="authorPicture">
-            <img src="https://media.newyorker.com/photos/5c4369fcaeb70d48728418ac/master/w_2560%2Cc_limit/Aizenman-MaryOliverTNY-1.jpg" alt-text=" A black and white photo of Mary Oliver. She is standing outside and looking to her left." />
-        </section>
-
-        <!--Terrance Hayes Poems-->
-        <section class="poets" id="Terrance Hayes">
-            <h2>Terrance Hayes</h2>
-            <br />
-            <ul>
-                @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Terrance Hayes"))
-                {
-
-                    <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
-                }
-            </ul>
-        </section>
+                <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
+            }
+        </ul>
+    </section>
 
 
-        <section class="authorPicture">
-            <img src="https://media.poetryfoundation.org/uploads/media/default/0001/19/198496b3f730c85668327e98d20f7bd9906064e2.jpeg?w=1274&h=&fit=max&1274" alt-text=" A black and white photo of Terrance Hayes' face. He is standing in the shadow of blinds, casting light across his face in stripes." />
-        </section>
+    <section class="authorPicture">
+        <img src="https://www.thenation.com/wp-content/uploads/2019/12/Ocean-Vuong-1-credit-Peter-Bienkowski.jpg" alt-text="Picure of the poet Ocean Vuong. He is sitting and smiling in a blue sweater. " />
+    </section>
 
-        <!--Shay Alexi Poems-->
-        <section class="poets" id="Shay Alexi">
-            <h2>Shay Alexi</h2>
-            <br />
-            <ul>
-                @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Shay Alexi"))
-                {
+    <!-- Layli Long Soldier Poems-->
+    <section class="poets" id="Layli Long Soldier">
 
-                    <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
-                }
-            </ul>
-        </section>
+        <h2>Layli Long Soldier</h2>
+        <br />
+        <ul>
+            @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Layli Long Soldier"))
+            {
 
-        <section class="authorPicture">
-            <img src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F58740676%2F139090090596%2F1%2Foriginal.20190318-174408?auto=compress&s=3d4ce76e5ea4d37b47e63a4524f585f3" alt-text="Shay alexi is standing and looking at the camera with one arm crossed and the other posing up towards their face." />
-        </section>
+                <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
+            }
+        </ul>
+    </section>
 
-        <!-- Marci Calabretta Cancio-Bello-->
-        <section class="poets" id="Marci Calabretta Cancio-Bello">
-            <h2> Marci Calabretta Cancio-Bello </h2>
-            <br />
-            <ul>
-                @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Marci Calabretta Cancio-Bello"))
-                {
+    <section class="authorPicture">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Layli_Long_Soldier_172902.jpg/330px-Layli_Long_Soldier_172902.jpg" alt-text="Picure of the poet Layli Long Soldier. She is standing behind a podium in a black and white shawl giving a speech " />
+    </section>
 
-                    <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
-                }
-            </ul>
-        </section>
+    <!-- Mary Oliver Poems-->
+    <section class="poets" id="Mary Oliver">
+        <h2>Mary Oliver</h2>
+        <br />
+        <ul>
+            @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Mary Oliver"))
+            {
 
+                <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
+            }
+        </ul>
+    </section>
 
-        <section class="authorPicture">
-            <img src="https://149349728.v2.pressablecdn.com/wp-content/uploads/2019/03/Marci-Calabretta-Cancio-Bello-c-Margarita-Corporan-high-res-1-1024x998.jpg" alt-text="Headshot of Marci Calabretta Cancio-Bello. She is standing outside and the background is blurry. She is smiling at the camera." />
-        </section>
+    <section class="authorPicture">
+        <img src="https://media.newyorker.com/photos/5c4369fcaeb70d48728418ac/master/w_2560%2Cc_limit/Aizenman-MaryOliverTNY-1.jpg" alt-text=" A black and white photo of Mary Oliver. She is standing outside and looking to her left." />
+    </section>
 
-        <!--Martín Espada-->
-        <section class="poets" id="Martín Espada">
-            <h2>Martín Espada</h2>
-            <br />
-            <ul>
-                @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Martín Espada"))
-                {
+    <!--Terrance Hayes Poems-->
+    <section class="poets" id="Terrance Hayes">
+        <h2>Terrance Hayes</h2>
+        <br />
+        <ul>
+            @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Terrance Hayes"))
+            {
 
-                    <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
-                }
-            </ul>
-        </section>
-
-
-        <section class="authorPicture">
-            <img src="https://onwisconsin.uwalumni.com/content/uploads/2010/02/Espada_Martin_port09_4056.jpg" alt-text="Poet Martin Espada is lounging in a chair with one arm ofer the back. He is looking at the camera with a serious expression on his face." />
-        </section>
+                <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
+            }
+        </ul>
+    </section>
 
 
-    </body>
+    <section class="authorPicture">
+        <img src="https://media.poetryfoundation.org/uploads/media/default/0001/19/198496b3f730c85668327e98d20f7bd9906064e2.jpeg?w=1274&h=&fit=max&1274" alt-text=" A black and white photo of Terrance Hayes' face. He is standing in the shadow of blinds, casting light across his face in stripes." />
+    </section>
+
+    <!--Shay Alexi Poems-->
+    <section class="poets" id="Shay Alexi">
+        <h2>Shay Alexi</h2>
+        <br />
+        <ul>
+            @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Shay Alexi"))
+            {
+
+                <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
+            }
+        </ul>
+    </section>
+
+    <section class="authorPicture">
+        <img src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F58740676%2F139090090596%2F1%2Foriginal.20190318-174408?auto=compress&s=3d4ce76e5ea4d37b47e63a4524f585f3" alt-text="Shay alexi is standing and looking at the camera with one arm crossed and the other posing up towards their face." />
+    </section>
+
+    <!-- Marci Calabretta Cancio-Bello-->
+    <section class="poets" id="Marci Calabretta Cancio-Bello">
+        <h2> Marci Calabretta Cancio-Bello </h2>
+        <br />
+        <ul>
+            @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Marci Calabretta Cancio-Bello"))
+            {
+
+                <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
+            }
+        </ul>
+    </section>
+
+
+    <section class="authorPicture">
+        <img src="https://149349728.v2.pressablecdn.com/wp-content/uploads/2019/03/Marci-Calabretta-Cancio-Bello-c-Margarita-Corporan-high-res-1-1024x998.jpg" alt-text="Headshot of Marci Calabretta Cancio-Bello. She is standing outside and the background is blurry. She is smiling at the camera." />
+    </section>
+
+    <!--Martín Espada-->
+    <section class="poets" id="Martín Espada">
+        <h2>Martín Espada</h2>
+        <br />
+        <ul>
+            @foreach (var poem in @Model.PoemsFromDatabase.Where(x => x.Author is "Martín Espada"))
+            {
+
+                <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
+            }
+        </ul>
+    </section>
+
+
+    <section class="authorPicture">
+        <img src="https://onwisconsin.uwalumni.com/content/uploads/2010/02/Espada_Martin_port09_4056.jpg" alt-text="Poet Martin Espada is lounging in a chair with one arm ofer the back. He is looking at the camera with a serious expression on his face." />
+    </section>
+
+
+</body>

@@ -133,3 +133,17 @@ body {
     float: right;
     margin: 4rem 0rem 0rem 0rem;
 }
+
+.thanks {
+    border-radius: 0px;
+    background: #b2f0e4;
+    box-shadow: -5px 5px 10px #96cac0, 5px -5px 10px #ceffff;
+    height: 250px;
+    width: 50%;
+    padding: 5%;
+    margin: 5%;
+    display: inline-flex;
+    flex-direction: row;
+    font-family: Helvetica;
+    float: left;
+}

@@ -12,16 +12,25 @@ namespace Your_New_Favorite_Poem.Pages
 {
     public class AddPoetModel : PageModel
     {
+        public string SubmissionResult { get; private set; } = "Submit your poem above!";
         public async Task OnPostSubmit(string author, string poem, string poemName)
         {
             var isValidUri = Uri.TryCreate(poem, UriKind.Absolute, out var poemUri);
             if (!isValidUri || poemUri is null)
             {
-                //notify user of invalid URL for poem
+                SubmissionResult = "Invalid URL";
             }
             else
             {
-                await _poemDatabase.InsertPoems(new Poem(author, poemName, poemUri));
+                try
+                {
+                    await _poemDatabase.InsertPoems(new Poem(author, poemName, poemUri));
+                    SubmissionResult = "We did it! Submission Accepted. Check back soon!";
+                }
+                catch
+                {
+                    SubmissionResult = "WHAT'D YOU DO?!? Error submitting to Database.";
+                }
             }
         }
 
