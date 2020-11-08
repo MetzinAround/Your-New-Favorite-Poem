@@ -22,7 +22,7 @@ namespace Your_New_Favorite_Poem.Models
         }
         [Key, DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.Identity)]
         public Guid Id { get; set; }
-        public string Author { get; set; }
+        public Author Author { get; set; }
         public string Title { get; set; }
         public Uri URL { get; set; }
         public bool IsDeleted { get; set; }
