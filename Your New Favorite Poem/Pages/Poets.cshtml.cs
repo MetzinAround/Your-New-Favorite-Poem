@@ -7,7 +7,7 @@ using System;
 
 namespace Your_New_Favorite_Poem.Pages
 {
-    
+
     public class PoetsModel : PageModel
     {
         public IReadOnlyList<Poem> PoemsFromDatabase { get; }
@@ -16,7 +16,7 @@ namespace Your_New_Favorite_Poem.Pages
         {
             Logger = logger;
             _poemDatabase = poemDatabase;
-            PoemsFromDatabase = poemDatabase.GetAllPoems();
+            PoemsFromDatabase = poemDatabase.GetAllData();
         }
 
 

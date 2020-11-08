@@ -18,7 +18,7 @@ namespace Your_New_Favorite_Poem.Pages
         public string Home { get; set; } = "Home";
         public IActionResult OnPostRandomPoem()
         {
-            
+
             var rnd = new Random();
             var index = rnd.Next(0, PoemsFromDatabase.Count);
 
@@ -32,8 +32,8 @@ namespace Your_New_Favorite_Poem.Pages
         {
             _logger = logger;
             _poemDatabase = poemDatabase;
-            PoemsFromDatabase = poemDatabase.GetAllPoems();
+            PoemsFromDatabase = poemDatabase.GetAllData();
         }
         private readonly PoemDatabase _poemDatabase;
-    }  
-} 
+    }
+}

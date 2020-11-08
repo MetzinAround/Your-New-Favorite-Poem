@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace Your_New_Favorite_Poem.Models
 {
-    public class Poem
+    [Table("poems")]
+    public class Poem : IDatabaseModel
     {
         public Poem()
         {
 
         }
-        public Poem( string author, string title, Uri url)
+        public Poem(string author, string title, Uri url)
         {
             Author = author;
             Title = title;
-            URL =  url;
+            URL = url;
         }
         [Key, DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.Identity)]
         public Guid Id { get; set; }

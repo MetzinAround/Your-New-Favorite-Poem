@@ -24,7 +24,7 @@ namespace Your_New_Favorite_Poem.Pages
             {
                 try
                 {
-                    await _poemDatabase.InsertPoems(new Poem(author, poemName, poemUri));
+                    await _poemDatabase.InsertData(new Poem(author, poemName, poemUri));
                     SubmissionResult = "We did it! Submission Accepted. Check back soon!";
                 }
                 catch
