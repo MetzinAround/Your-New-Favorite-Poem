@@ -9,9 +9,13 @@ namespace Your_New_Favorite_Poem.Models
     public interface IDatabaseModel
     {
         public Guid Id { get; set; }
+
         public bool IsDeleted { get; set; }
+
         public DateTimeOffset CreatedAt { get; set; }
+
         public DateTimeOffset UpdatedAt { get; set; }
+
         public bool IsVerified { get; set; }
     }
 }

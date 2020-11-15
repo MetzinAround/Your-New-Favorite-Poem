@@ -128,7 +128,11 @@ namespace Your_New_Favorite_Poem.Database
             public DatabaseContext()
             {
                 Database.EnsureCreated();
-
+                if(Data is DbSet<Author> authorDb && !authorDb.Any())
+                {
+                    authorDb.AddRange(PoemsConstants.AuthorList);
+                    SaveChanges();
+                }
             }
             public DbSet<T>? Data { get; set; }
 
@@ -137,7 +141,7 @@ namespace Your_New_Favorite_Poem.Database
             {
                 modelBuilder.Entity<T>().Property(b => b.CreatedAt).HasDefaultValue(DateTimeOffset.UtcNow);
                 modelBuilder.Entity<T>().Property(b => b.UpdatedAt).HasDefaultValue(DateTimeOffset.UtcNow);
-
+                
             }
         }
     }

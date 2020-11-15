@@ -24,7 +24,11 @@ namespace Your_New_Favorite_Poem.Pages
             {
                 try
                 {
-                    await _poemDatabase.InsertData(new Poem(author, poemName, poemUri));
+                    // await _poemDatabase.InsertData(new Poem(author, poemName, poemUri));
+#if RELEASE
+#error "You big idiot."
+#endif
+                    throw new Exception("CODEPATH TEMPORARILY BROKEN; Please fix me");
                     SubmissionResult = "We did it! Submission Accepted. Check back soon!";
                 }
                 catch

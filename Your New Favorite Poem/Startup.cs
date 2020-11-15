@@ -26,6 +26,7 @@ namespace Your_New_Favorite_Poem
         {
             services.AddRazorPages();
             services.AddSingleton<PoemDatabase>();
+            services.AddSingleton<AuthorDatabase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
