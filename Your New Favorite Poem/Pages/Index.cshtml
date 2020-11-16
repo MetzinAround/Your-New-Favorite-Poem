@@ -31,9 +31,9 @@
 
     @foreach (var author in @Model.AuthorsFromDatabase)
     {
-
+        //poems and links not displaying after reseeding database
         <section class="poets">
-            <h2>@author.Name Poems</h2>
+            <h2>@author.Name </h2>
             <br />
             <ul>
                 @foreach (var poem in author.Poems)

@@ -14,7 +14,7 @@ namespace Your_New_Favorite_Poem.Pages
         public string Home { get; set; } = "Home";
         public IActionResult OnPostRandomPoem()
         {
-
+            //random button not working
             var rnd = new Random();
             var index = rnd.Next(0, AuthorsFromDatabase.Count);
 
