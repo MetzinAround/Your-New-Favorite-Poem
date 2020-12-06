@@ -12,7 +12,7 @@ namespace Your_New_Favorite_Poem.Models
     public class Author : IDatabaseModel
     {
         [Key, DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.Identity)]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; } = string.Empty;
 

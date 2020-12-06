@@ -16,11 +16,9 @@ namespace Your_New_Favorite_Poem.Models
         }
         
         [Key, DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.Identity)]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public Author Author { get; set; }
-
-        public Guid AuthorId { get; set; }
 
         public string Title { get; set; }
 

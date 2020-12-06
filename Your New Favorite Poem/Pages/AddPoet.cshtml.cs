@@ -38,13 +38,13 @@ namespace Your_New_Favorite_Poem.Pages
             }
         }
 
-        public AddPoetModel(ILogger<AddPoetModel> logger, PoemDatabase poemDatabase)
+        public AddPoetModel(ILogger<AddPoetModel> logger, AuthorsDbContext authorsDbContext)
         {
             _logger = logger;
-            _poemDatabase = poemDatabase;
+            _authorsDbContext = authorsDbContext;
 
         }
-        private readonly PoemDatabase _poemDatabase;
+        private readonly AuthorsDbContext _authorsDbContext;
         private readonly ILogger<AddPoetModel> _logger;
         public void OnGet()
         {

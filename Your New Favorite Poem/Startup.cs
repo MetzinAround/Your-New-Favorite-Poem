@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,8 +27,9 @@ namespace Your_New_Favorite_Poem
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddSingleton<PoemDatabase>();
-            services.AddSingleton<AuthorDatabase>();
+            services.AddDbContext<AuthorsDbContext>(options => options.UseMySQL(GetConnectionString()));
+            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +57,29 @@ namespace Your_New_Favorite_Poem
             {
                 endpoints.MapRazorPages();
             });
+        }
+        //https://stackoverflow.com/a/43740589/13741035
+        static string GetConnectionString()
+        {
+            var connectionStringFromEnvironmentVariable = Environment.GetEnvironmentVariable("MYSQLCONNSTR_localdb") ?? string.Empty;
+            var connArray = Regex.Split(connectionStringFromEnvironmentVariable, ";");
+
+            var connectionstring = string.Empty;
+            for (int i = 0; i < connArray.Length; i++)
+            {
+
+                if (i is 1)
+                {
+                    string[] datasource = Regex.Split(connArray[i], ":");
+                    connectionstring += datasource[0] + string.Format(";port={0};", datasource[1]);
+                }
+                else
+                {
+                    connectionstring += connArray[i] + ";";
+                }
+            }
+
+            return connectionstring;
         }
     }
 }

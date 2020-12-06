@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Your_New_Favorite_Poem.Constants;
 using Your_New_Favorite_Poem.Database;
 using Your_New_Favorite_Poem.Models;
 
@@ -24,12 +26,14 @@ namespace Your_New_Favorite_Poem.Pages
         }
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger, AuthorDatabase authorDatabase)
+        public IndexModel(ILogger<IndexModel> logger, AuthorsDbContext authorsDbContext)
         {
             _logger = logger;
-            _authorDatabase = authorDatabase;
-            AuthorsFromDatabase = authorDatabase.GetAllData();
+            _authorsDbContext = authorsDbContext;
+            var temp = authorsDbContext.Poems.ToList();
+            AuthorsFromDatabase = authorsDbContext.Authors.ToList();
+            
         }
-        private readonly AuthorDatabase _authorDatabase;
+        private readonly AuthorsDbContext _authorsDbContext;
     }
 }
