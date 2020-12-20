@@ -21,7 +21,6 @@ namespace Your_New_Favorite_Poem.Pages
             PoemsFromDatabase = authorsDbContext.Poems.ToList();
         }
 
-
         internal ILogger<PoetsModel> Logger { get; }
 
         public void OnGet()

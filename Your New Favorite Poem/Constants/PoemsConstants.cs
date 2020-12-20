@@ -34,6 +34,7 @@ namespace Your_New_Favorite_Poem.Constants
                     }
                 }
             },
+
             new Author
             {
                 Name = "Layli Long Soldier",
@@ -98,7 +99,8 @@ namespace Your_New_Favorite_Poem.Constants
                         URL = new Uri ("https://www.poetryfoundation.org/poetrymagazine/poems/143917/american-sonnet-for-my-past-and-future-assassin-598dc83c976f1"),
                         IsVerified = true
                     },
-                    new Poem
+                    new Poem 
+                    //fix url for poem
                     {
                         Title = "Probably, Ghosts Are Allergic To Us. Our Uproarious",
                         URL = new Uri("https://rhymings.com/terrance-hayes/probably-ghosts-are-allergic-to-us-our-uproarious/"),
@@ -182,6 +184,44 @@ namespace Your_New_Favorite_Poem.Constants
                         URL = new Uri("https://poets.org/poem/how-we-could-have-lived-or-died-way"),
                         IsVerified = true,
                     }
+                }
+            },
+
+            new Author
+            {
+                Name = "Diane Seuss",
+                IsVerified = true,
+                Bio = "Coming Soon",
+                PictureURL = new Uri("http://media.mlive.com/kzgazette/entertainment/photo/diane-seuss-972bef30aa63cac4_large.jpg"),
+                PictureAltText = "Picture of the poet Diane Seuss. She is outside in a red and orange poncho with a matching hat.",
+                Poems = new List<Poem>
+                {
+                    new Poem
+                    {
+                      Title = "[PARTIES AMONG STRANGERS, PUNKS, LEATHER CAPS AND STRAPS, PRESSING]",
+                      URL = new Uri ("https://theadroitjournal.org/issue-thirty-four/diane-seuss-poetry/"),
+                      IsVerified = true,
+                    },
+                    
+                }
+            },
+
+            new Author
+            {
+                Name = "Darius Atefat-Peckham",
+                IsVerified = true,
+                Bio = "Coming Soon",
+                PictureURL = new Uri("https://www.interlochen.org/sites/default/files/styles/full_page_image/public/Darius_884x497.jpg?itok=UWTCgFv1"),
+                PictureAltText = "Picture of the poet Darius Atefat-Peckham. He is reading into a microphone for a small crowd of listeners.",
+                Poems = new List<Poem>
+                {
+                    new Poem
+                    {
+                      Title = "here’s a love poem to the garden snail",
+                      URL = new Uri ("https://tinderboxpoetry.com/heres-a-love-poem-to-the-garden-snail"),
+                      IsVerified = true,
+                    },
+
                 }
             }
         };
