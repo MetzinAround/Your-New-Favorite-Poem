@@ -9,6 +9,7 @@ using Your_New_Favorite_Poem.Database;
 using Your_New_Favorite_Poem.Models;
 
 namespace Your_New_Favorite_Poem.Pages
+//This is not compiling in order to allow us to get the database working. We made an error on this page on purpose.  
 {
     public class AddPoetModel : PageModel
     {
@@ -24,7 +25,20 @@ namespace Your_New_Favorite_Poem.Pages
             {
                 try
                 {
-                    // await _poemDatabase.InsertData(new Poem(author, poemName, poemUri));
+                    var givenAuthor = new Author
+                    {
+                        IsVerified = false,
+                        Bio = "",
+                        IsDeleted = false,
+                        Name = author,
+                        Poems =
+                        
+
+
+                    
+                    }
+                    ;
+                     await _poemDatabase.InsertData(new Poem(author, poemName, poemUri));
 #if RELEASE
 #error "You big idiot."
 #endif

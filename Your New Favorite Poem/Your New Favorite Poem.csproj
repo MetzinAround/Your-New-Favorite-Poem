@@ -8,6 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\AddPoet.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\AddPoet.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\AddPoet.cshtml" />
+    <None Include="Pages\AddPoet.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
       <PrivateAssets>all</PrivateAssets>
