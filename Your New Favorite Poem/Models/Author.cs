@@ -5,24 +5,24 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace Your_New_Favorite_Poem.Models
 {
-    [Table("poems")]
-    public class Poem : IDatabaseModel
+    [Table("authors")]
+    public class Author : IDatabaseModel
     {
-        public Poem()
-        {
-
-        }
-        
         [Key, DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.Identity)]
         public int Id { get; set; }
 
-        public Author Author { get; set; }
+        public string Name { get; set; } = string.Empty;
 
-        public string Title { get; set; }
+        public string Bio { get; set; } = string.Empty;
 
-        public Uri URL { get; set; }
+        public List<Poem> Poems { get; set; } = new List<Poem>();
+
+        public Uri? PictureURL { get; set; }
+
+        public string PictureAltText { get; set; } = string.Empty;
 
         public bool IsDeleted { get; set; }
 
@@ -32,9 +32,6 @@ namespace Your_New_Favorite_Poem.Models
         [DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.Computed)]
         public DateTimeOffset UpdatedAt { get; set; }
 
-        public bool IsVerified { get; set; } = false;
-
+        public bool IsVerified { get; set; }
     }
-
-
 }

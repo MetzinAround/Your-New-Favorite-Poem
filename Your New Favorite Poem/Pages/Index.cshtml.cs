@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -14,26 +12,28 @@ namespace Your_New_Favorite_Poem.Pages
 {
     public class IndexModel : PageModel
     {
-        public IReadOnlyList<Poem> PoemsFromDatabase { get; }
+        public IReadOnlyList<Author> AuthorsFromDatabase { get; }
         public string Home { get; set; } = "Home";
         public IActionResult OnPostRandomPoem()
         {
-
+            //random button not working
             var rnd = new Random();
-            var index = rnd.Next(0, PoemsFromDatabase.Count);
+            var index = rnd.Next(0, AuthorsFromDatabase.Count);
 
-            var randomPoem = PoemsFromDatabase[index];
-
-            return Redirect(randomPoem.URL.ToString());
+            var randomAuthor = AuthorsFromDatabase[index];
+            var poemIndex = rnd.Next(0, randomAuthor.Poems.Count);
+            return Redirect(randomAuthor.Poems[poemIndex].URL.ToString());
         }
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger, PoemDatabase poemDatabase)
+        public IndexModel(ILogger<IndexModel> logger, AuthorsDbContext authorsDbContext)
         {
             _logger = logger;
-            _poemDatabase = poemDatabase;
-            PoemsFromDatabase = poemDatabase.GetAllData();
+            _authorsDbContext = authorsDbContext;
+            var temp = authorsDbContext.Poems.ToList();
+            AuthorsFromDatabase = authorsDbContext.Authors.ToList();
+            
         }
-        private readonly PoemDatabase _poemDatabase;
+        private readonly AuthorsDbContext _authorsDbContext;
     }
 }

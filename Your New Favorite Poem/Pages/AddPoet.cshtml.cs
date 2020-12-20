@@ -24,7 +24,11 @@ namespace Your_New_Favorite_Poem.Pages
             {
                 try
                 {
-                    await _poemDatabase.InsertData(new Poem(author, poemName, poemUri));
+                    // await _poemDatabase.InsertData(new Poem(author, poemName, poemUri));
+#if RELEASE
+#error "You big idiot."
+#endif
+                    throw new Exception("CODEPATH TEMPORARILY BROKEN; Please fix me");
                     SubmissionResult = "We did it! Submission Accepted. Check back soon!";
                 }
                 catch
@@ -34,13 +38,13 @@ namespace Your_New_Favorite_Poem.Pages
             }
         }
 
-        public AddPoetModel(ILogger<AddPoetModel> logger, PoemDatabase poemDatabase)
+        public AddPoetModel(ILogger<AddPoetModel> logger, AuthorsDbContext authorsDbContext)
         {
             _logger = logger;
-            _poemDatabase = poemDatabase;
+            _authorsDbContext = authorsDbContext;
 
         }
-        private readonly PoemDatabase _poemDatabase;
+        private readonly AuthorsDbContext _authorsDbContext;
         private readonly ILogger<AddPoetModel> _logger;
         public void OnGet()
         {
