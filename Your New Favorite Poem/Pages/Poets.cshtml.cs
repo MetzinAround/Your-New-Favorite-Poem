@@ -17,6 +17,7 @@ namespace Your_New_Favorite_Poem.Pages
         {
             Logger = logger;
             _authorsDbContext = authorsDbContext;
+            var temp = authorsDbContext.Authors.ToList();
             PoemsFromDatabase = authorsDbContext.Poems.ToList();
         }
 
