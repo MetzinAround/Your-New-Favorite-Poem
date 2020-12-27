@@ -1,16 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Renci.SshNet;
-using Your_New_Favorite_Poem.Database;
 using Your_New_Favorite_Poem.Models;
 
 namespace Your_New_Favorite_Poem.Pages
-//This is not compiling in order to allow us to get the database working. We made an error on this page on purpose.  
 {
     public class AddPoetModel : PageModel
     {
@@ -23,10 +18,10 @@ namespace Your_New_Favorite_Poem.Pages
             _authorsDbContext = authorsDbContext;
 
         }
-        
+
 
         public string SubmissionResult { get; private set; } = "Submit your poem above!";
-        public async Task OnPostSubmit(string authorName, string poemUrl, string poemName, string bio, string pictureUrl, string pictureAltText )
+        public async Task OnPostSubmit(string authorName, string poemUrl, string poemName, string bio, string pictureUrl, string pictureAltText)
         {
             var isPoemUrlValid = Uri.TryCreate(poemUrl, UriKind.Absolute, out var poemUri);
             var isPictureUrlValid = Uri.TryCreate(pictureUrl, UriKind.Absolute, out var pictureUri);
@@ -37,7 +32,8 @@ namespace Your_New_Favorite_Poem.Pages
             else if (!isPictureUrlValid || pictureUri is null)
             {
                 SubmissionResult = "Invalid Picture URL";
-            } else
+            }
+            else
             {
                 try
                 {
@@ -48,15 +44,15 @@ namespace Your_New_Favorite_Poem.Pages
                         Bio = bio,
                         Name = authorName,
                         PictureURL = pictureUri,
-                        Poems = new List<Poem> 
-                        { 
-                            new Poem() 
+                        Poems = new List<Poem>
+                        {
+                            new Poem()
                             {
                                 URL = poemUri,
                                 Title = poemName,
                                 IsVerified = false
                             }
-                        }              
+                        }
 
                     };
 
