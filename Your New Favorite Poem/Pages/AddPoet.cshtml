@@ -4,18 +4,30 @@
     ViewData["Title"] = "Add a Poet";
 }
 <body>
-    <form  method="post" asp-page="AddPoet">
+    <form method="post" asp-page="AddPoet">
         <section class="Author">
-            <label for="Author">What is the name of the poet?</label>
-            <input type="text" name="author" id="author">
+            <label for="AuthorName">What is the name of the poet?</label>
+            <input type="text" name="authorName" id="authorName">
         </section>
-        <section class="Poem">
-            <label for="Poem">What is the url for the poem?</label>
-            <input type="text" name="poem" id="poem">
+        <section class="PoemUrl">
+            <label for="PoemUrl">What is the url for the poem?</label>
+            <input type="text" name="poemUrl" id="poemUrl">
         </section>
         <section class="PoemName">
             <label for="PoemName">What is the name of the poem?</label>
             <input type="text" name="poemName" id="poemName">
+        </section>
+        <section class="PictureUrl">
+            <label for="PictureUrl">Please add a picture URL of the poet.</label>
+            <input type="text" name="pictureUrl" id="pictureUrl">
+        </section>
+        <section class="PictureAltText">
+            <label for="PictureAltText">Please describe the picture to use as Alt text.</label>
+            <input type="text" name="pictureAltText" id="pictureAltText">
+        </section>
+        <section class="Bio">
+            <label for="Bio">Please write a short biography of the poet.</label>
+            <textarea type="text" name="bio" id="bio"></textarea>
         </section>
         <section class="submission">
             <input type="submit" value="Submit Poem" asp-page-handler="Submit">

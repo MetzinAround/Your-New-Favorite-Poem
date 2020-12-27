@@ -5,30 +5,64 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Renci.SshNet;
 using Your_New_Favorite_Poem.Database;
 using Your_New_Favorite_Poem.Models;
 
 namespace Your_New_Favorite_Poem.Pages
+//This is not compiling in order to allow us to get the database working. We made an error on this page on purpose.  
 {
     public class AddPoetModel : PageModel
     {
-        public string SubmissionResult { get; private set; } = "Submit your poem above!";
-        public async Task OnPostSubmit(string author, string poem, string poemName)
+        private readonly AuthorsDbContext _authorsDbContext;
+        private readonly ILogger<AddPoetModel> _logger;
+
+        public AddPoetModel(ILogger<AddPoetModel> logger, AuthorsDbContext authorsDbContext)
         {
-            var isValidUri = Uri.TryCreate(poem, UriKind.Absolute, out var poemUri);
-            if (!isValidUri || poemUri is null)
+            _logger = logger;
+            _authorsDbContext = authorsDbContext;
+
+        }
+        
+
+        public string SubmissionResult { get; private set; } = "Submit your poem above!";
+        public async Task OnPostSubmit(string authorName, string poemUrl, string poemName, string bio, string pictureUrl, string pictureAltText )
+        {
+            var isPoemUrlValid = Uri.TryCreate(poemUrl, UriKind.Absolute, out var poemUri);
+            var isPictureUrlValid = Uri.TryCreate(pictureUrl, UriKind.Absolute, out var pictureUri);
+            if (!isPoemUrlValid || poemUri is null)
             {
-                SubmissionResult = "Invalid URL";
+                SubmissionResult = "Invalid Poem URL";
             }
-            else
+            else if (!isPictureUrlValid || pictureUri is null)
+            {
+                SubmissionResult = "Invalid Picture URL";
+            } else
             {
                 try
                 {
-                    // await _poemDatabase.InsertData(new Poem(author, poemName, poemUri));
-#if RELEASE
-#error "You big idiot."
-#endif
-                    throw new Exception("CODEPATH TEMPORARILY BROKEN; Please fix me");
+                    var givenAuthor = new Author
+                    {
+                        IsVerified = false,
+                        PictureAltText = pictureAltText,
+                        Bio = bio,
+                        Name = authorName,
+                        PictureURL = pictureUri,
+                        Poems = new List<Poem> 
+                        { 
+                            new Poem() 
+                            {
+                                URL = poemUri,
+                                Title = poemName,
+                                IsVerified = false
+                            }
+                        }              
+
+                    };
+
+                    await _authorsDbContext.AddAsync<Author>(givenAuthor);
+                    await _authorsDbContext.SaveChangesAsync();
+
                     SubmissionResult = "We did it! Submission Accepted. Check back soon!";
                 }
                 catch
@@ -38,14 +72,6 @@ namespace Your_New_Favorite_Poem.Pages
             }
         }
 
-        public AddPoetModel(ILogger<AddPoetModel> logger, AuthorsDbContext authorsDbContext)
-        {
-            _logger = logger;
-            _authorsDbContext = authorsDbContext;
-
-        }
-        private readonly AuthorsDbContext _authorsDbContext;
-        private readonly ILogger<AddPoetModel> _logger;
         public void OnGet()
         {
 

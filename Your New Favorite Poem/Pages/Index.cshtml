@@ -29,14 +29,14 @@
     </div>
     <!--Index page as a single foreach loop-->
 
-    @foreach (var author in @Model.AuthorsFromDatabase)
+    @foreach (var author in @Model.AuthorsFromDatabase.Where(x => x.IsVerified is true))
     {   
         //poems and links not displaying after reseeding database
         <section class="poets">
             <h2>@author.Name </h2>
             <br />
             <ul>
-                @foreach (var poem in author.Poems)
+                @foreach (var poem in author.Poems.Where(x => x.IsVerified is true))
                 {
 
                     <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
