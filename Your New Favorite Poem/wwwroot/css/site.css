@@ -66,13 +66,15 @@ button.accept-policy {
 html {
     position: relative;
     min-height: 100%;
-    background-color: #b2f0e4
+    background-color: #b2f0e4;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     background-color: #b2f0e4;
+    font-family: 'Times New Roman', Times, serif;
 }
 .footer {
     position: absolute;
@@ -95,7 +97,6 @@ body {
     margin: 5%;
     display: inline-flex;
     flex-direction: row;
-    font-family: Helvetica;
     float: left;
 }
 
@@ -109,7 +110,7 @@ body {
     box-shadow: 5px 5px 15px #79a39b, -5px -5px 15px #ebffff;
     margin: 5%;
     padding: 5%;
-    font-family: Helvetica;
+    
 }
 
 .button {
@@ -144,6 +145,5 @@ body {
     margin: 5%;
     display: inline-flex;
     flex-direction: row;
-    font-family: Helvetica;
     float: left;
 }

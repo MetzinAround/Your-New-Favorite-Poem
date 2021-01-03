@@ -39,7 +39,7 @@
                 @foreach (var poem in author.Poems.Where(x => x.IsVerified is true))
                 {
 
-                    <li><a href=@poem.URL target="_blank">@poem.Title</a></li>
+                    <li><a id="@author.Name"href=@poem.URL target="_blank">@poem.Title</a></li>
                 }
             </ul>
         </section>
