@@ -32,12 +32,8 @@
                 <textarea type="text" name="bio" id="bio"></textarea>
             </section>
             <section>
-                <input type="submit" value="Submit Poem" asp-page-handler="Submit" class="submission">
+                <input type="submit" value=@Model.SubmissionResult asp-page-handler="Submit" id="submission">
             </section>
         </form>
-    </section>
-
-    <section class="thanks">
-        <h1> @Model.SubmissionResult </h1>
     </section>
 </body>

@@ -176,11 +176,26 @@ label {
     display: block;
 }
 
-input[type=submit], .submission {
+input[type=submit], #submission {
     margin: auto;
-    background-color: #EBC3DB;
+    background: #EBC3DB;
+    border-radius: 21px;
+    background: #EBC3DB;
+    box-shadow: -6px 6px 4px #171a21;
 }
 
-.submission {
-    margin: 400px;
+#submission {
+    background-color: #EBC3DB;
+    padding: 50px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 100px;
+    width: 50%;
+    border-radius: 21px;
+    background: #EBC3DB;
+    box-shadow: -6px 6px 4px #171a21;
+    
 }
+
+

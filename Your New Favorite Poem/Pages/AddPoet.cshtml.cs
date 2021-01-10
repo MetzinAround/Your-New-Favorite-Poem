@@ -20,7 +20,7 @@ namespace Your_New_Favorite_Poem.Pages
         }
 
 
-        public string SubmissionResult { get; private set; } = "Submit your poem above!";
+        public string SubmissionResult { get; private set; } = "Submit Poem";
         public async Task OnPostSubmit(string authorName, string poemUrl, string poemName, string bio, string pictureUrl, string pictureAltText)
         {
             var isPoemUrlValid = Uri.TryCreate(poemUrl, UriKind.Absolute, out var poemUri);
@@ -59,11 +59,11 @@ namespace Your_New_Favorite_Poem.Pages
                     await _authorsDbContext.AddAsync<Author>(givenAuthor);
                     await _authorsDbContext.SaveChangesAsync();
 
-                    SubmissionResult = "We did it! Submission Accepted. Check back soon!";
+                    SubmissionResult = "Submission Accepted";
                 }
                 catch
                 {
-                    SubmissionResult = "WHAT'D YOU DO?!? Error submitting to Database.";
+                    SubmissionResult = "Database Error";
                 }
             }
         }
