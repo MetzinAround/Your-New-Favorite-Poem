@@ -147,3 +147,40 @@ body {
     flex-direction: row;
     float: left;
 }
+
+input[type=text], select, textarea[type=text] {
+    width: 100%;
+    padding: 5px;
+    margin: 0px 0px 20px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: x-large;
+}
+
+label {
+    font-size: x-large;
+    margin: 0px;
+
+}
+
+.morphDiv {
+    border-radius: 14px;
+    background: #b2f0e4;
+    box-shadow: -34px 34px 56px #7ba69d;
+    padding: 60px;
+    margin: 50px auto;
+    border: 2px solid black;
+    max-width: 550px;
+    display: block;
+}
+
+input[type=submit], .submission {
+    margin: auto;
+    background-color: #EBC3DB;
+}
+
+.submission {
+    margin: 400px;
+}
