@@ -4,37 +4,36 @@
     ViewData["Title"] = "Add a Poet";
 }
 <body>
-    <form method="post" asp-page="AddPoet">
-        <section class="Author">
-            <label for="AuthorName">What is the name of the poet?</label>
-            <input type="text" name="authorName" id="authorName">
-        </section>
-        <section class="PoemUrl">
-            <label for="PoemUrl">What is the url for the poem?</label>
-            <input type="text" name="poemUrl" id="poemUrl">
-        </section>
-        <section class="PoemName">
-            <label for="PoemName">What is the name of the poem?</label>
-            <input type="text" name="poemName" id="poemName">
-        </section>
-        <section class="PictureUrl">
-            <label for="PictureUrl">Please add a picture URL of the poet.</label>
-            <input type="text" name="pictureUrl" id="pictureUrl">
-        </section>
-        <section class="PictureAltText">
-            <label for="PictureAltText">Please describe the picture to use as Alt text.</label>
-            <input type="text" name="pictureAltText" id="pictureAltText">
-        </section>
-        <section class="Bio">
-            <label for="Bio">Please write a short biography of the poet.</label>
-            <textarea type="text" name="bio" id="bio"></textarea>
-        </section>
-        <section class="submission">
-            <input type="submit" value="Submit Poem" asp-page-handler="Submit">
-        </section>
-    </form>
-
-    <section class="thanks">
-        <h1> @Model.SubmissionResult </h1>
+    <section class="morphDiv">
+        <h1 style="text-align:center;" > New Poem </h1>
+        <form method="post" asp-page="AddPoet">
+            <section class="PoemName">
+                <label for="PoemName">Poem Title</label>
+                <input type="text" name="poemName" id="poemName">
+            </section>
+            <section>
+                <label for="AuthorName">Author</label>
+                <input id="authorName" type="text" name="authorName">
+            </section>
+            <section class="PoemUrl">
+                <label for="PoemUrl">Poem URL</label>
+                <input type="text" name="poemUrl" id="poemUrl">
+            </section>
+            <section class="PictureUrl">
+                <label for="PictureUrl">Picture URL</label>
+                <input type="text" name="pictureUrl" id="pictureUrl">
+            </section>
+            <section class="PictureAltText">
+                <label for="PictureAltText">Picture Description</label>
+                <input type="text" name="pictureAltText" id="pictureAltText">
+            </section>
+            <section class="Bio">
+                <label for="Bio">Author Biography</label>
+                <textarea type="text" name="bio" id="bio"></textarea>
+            </section>
+            <section>
+                <input type="submit" value=@Model.SubmissionResult asp-page-handler="Submit" id="submission">
+            </section>
+        </form>
     </section>
 </body>
