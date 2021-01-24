@@ -1,6 +1,6 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using MySql.Data.EntityFrameworkCore.Metadata;
 
 namespace Your_New_Favorite_Poem.Migrations
 {
@@ -13,7 +13,7 @@ namespace Your_New_Favorite_Poem.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySQL:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: false),
                     Bio = table.Column<string>(nullable: false),
                     PictureURL = table.Column<string>(nullable: true),
@@ -33,7 +33,7 @@ namespace Your_New_Favorite_Poem.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySQL:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     AuthorId = table.Column<int>(nullable: false),
                     Title = table.Column<string>(nullable: false),
                     URL = table.Column<string>(nullable: false),
