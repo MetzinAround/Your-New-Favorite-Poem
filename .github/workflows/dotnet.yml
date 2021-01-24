@@ -27,3 +27,14 @@ jobs:
       
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    
+    - name: dotnet publish
+      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'yournewfavoritepoem'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_124d9f6b463c4906a9fb26358399b687 }}
+        package: ${{env.DOTNET_ROOT}}/myapp 
