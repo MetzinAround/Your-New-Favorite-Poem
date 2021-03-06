@@ -14,5 +14,5 @@
 <img src ="https://user-images.githubusercontent.com/65838556/110222567-2d503e00-7ea1-11eb-9966-1ee2604b8a9e.png">
 <p> The Poets page is a list of all verified poets on the page that link directly to the list on the main page </p>
 </br>
-<img src ="https://user-images.githubusercontent.com/65838556/110222567-2d503e00-7ea1-11eb-9966-1ee2604b8a9e.png">
+<img src ="https://user-images.githubusercontent.com/65838556/110222590-4f49c080-7ea1-11eb-8244-575a6190d2db.png">
 <p> The Add a Poet Page is a place where you can suggest poems to be included in the website. </p>
