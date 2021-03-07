@@ -34,7 +34,7 @@
         //poems and links not displaying after reseeding database
         <section class="poets">
             <h2>@author.Name </h2>
-            <br />
+            <br/>
             <ul>
                 @foreach (var poem in author.Poems.Where(x => x.IsVerified is true))
                 {
