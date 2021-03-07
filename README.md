@@ -1,7 +1,7 @@
 [![Build And Test](https://github.com/MetzinAround/Your-New-Favorite-Poem/actions/workflows/BuildAndTest.yml/badge.svg)](https://github.com/MetzinAround/Your-New-Favorite-Poem/actions/workflows/BuildAndTest.yml) [![Publish To Azure](https://github.com/MetzinAround/Your-New-Favorite-Poem/actions/workflows/PublishToAzure.yml/badge.svg)](https://github.com/MetzinAround/Your-New-Favorite-Poem/actions/workflows/PublishToAzure.yml)
 
 <div align="center">
-  <a href="https://www.ynfp.net"><img src ="https://user-images.githubusercontent.com/65838556/110222511-ba46c780-7ea0-11eb-82b1-91759a8b27e3.png" alt="Front page of the ynfp.net website. It is a teal background with poet pictures"></a>
+  <a href="https://www.ynfp.net" target= "blank"><img src ="https://user-images.githubusercontent.com/65838556/110222511-ba46c780-7ea0-11eb-82b1-91759a8b27e3.png" alt="Front page of the ynfp.net website. It is a teal background with poet pictures"></a>
 </div>
 
 <p> Your New Favorite poem is your space to dsicover new poems from writers you may never have read otherwise. It started as a first project while I learned C# and grew into a way to learn ASP.Net Core, Entity Framework Core, and Azure. </p>
