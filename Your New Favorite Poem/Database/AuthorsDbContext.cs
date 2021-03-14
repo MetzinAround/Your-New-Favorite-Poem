@@ -16,8 +16,8 @@ namespace Your_New_Favorite_Poem
 
         }
 
-        public DbSet<Author>? Authors { get; set; }
-        public DbSet<Poem>? Poems { get; set; }
+        public DbSet<Author> Authors { get; init; }
+        public DbSet<Poem> Poems { get; init; }
 
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
