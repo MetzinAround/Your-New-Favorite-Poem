@@ -1,4 +1,5 @@
-[![Build And Test](https://github.com/MetzinAround/Your-New-Favorite-Poem/actions/workflows/BuildAndTest.yml/badge.svg)](https://github.com/MetzinAround/Your-New-Favorite-Poem/actions/workflows/BuildAndTest.yml) [![Publish To Azure](https://github.com/MetzinAround/Your-New-Favorite-Poem/actions/workflows/PublishToAzure.yml/badge.svg)](https://github.com/MetzinAround/Your-New-Favorite-Poem/actions/workflows/PublishToAzure.yml)
+[![Build And Test](https://github.com/MetzinAround/Your-New-Favorite-Poem/actions/workflows/BuildAndTest.yml/badge.svg)](https://github.com/MetzinAround/Your-New-Favorite-Poem/actions/workflows/BuildAndTest.yml) 
+[![Publish To Azure](https://github.com/MetzinAround/Your-New-Favorite-Poem/actions/workflows/PublishToAzure.yml/badge.svg)](https://github.com/MetzinAround/Your-New-Favorite-Poem/actions/workflows/PublishToAzure.yml)
 
 <div align="center">
   <a href="https://www.ynfp.net" target="_blank"><img src ="https://user-images.githubusercontent.com/65838556/110222511-ba46c780-7ea0-11eb-82b1-91759a8b27e3.png" alt="Front page of the ynfp.net website. It is a teal background with poet pictures"></a>
