@@ -11,18 +11,19 @@ namespace YourNewFavoritePoem.UnitTests.Tests
     class BaseTest
     {
         const string _inMemoryConnectionString = "DataSource=:memory:?cache=shared";
-        readonly SqliteConnection _connection = new SqliteConnection(_inMemoryConnectionString);
+        readonly SqliteConnection _connection = new(_inMemoryConnectionString);
         AuthorsDbContext? _authorsDbContext;
 
         protected AuthorsDbContext AuthorsDbContext => _authorsDbContext ?? throw new NullReferenceException();
 
         [SetUp]
-        public Task Setup()
+        public async Task Setup()
         {
             var optionsBuilder = new DbContextOptionsBuilder<AuthorsDbContext>().UseSqlite(_connection);
 
             _authorsDbContext = new AuthorsDbContext(optionsBuilder.Options);
-            return DbInitializer.Initialize(_authorsDbContext);
+            await _authorsDbContext.Database.EnsureDeletedAsync().ConfigureAwait(false);
+            await DbInitializer.Initialize(_authorsDbContext).ConfigureAwait(false);
         }
 
         [TearDown]
