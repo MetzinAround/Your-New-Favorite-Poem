@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Your_New_Favorite_Poem;
 
 namespace Your_New_Favorite_Poem.Migrations
 {
     [DbContext(typeof(AuthorsDbContext))]
-    partial class AuthorsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210321214934_UseCurrentTimeStamp")]
+    partial class UseCurrentTimeStamp
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
