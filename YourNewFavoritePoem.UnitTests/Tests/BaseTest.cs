@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
@@ -13,22 +10,22 @@ namespace YourNewFavoritePoem.UnitTests.Tests
 {
     class BaseTest
     {
-        AuthorsDbContext? authorsDbContext;
+        const string _inMemoryConnectionString = "DataSource=:memory:?cache=shared";
+        readonly SqliteConnection _connection = new SqliteConnection(_inMemoryConnectionString);
+        AuthorsDbContext? _authorsDbContext;
 
-        protected AuthorsDbContext AuthorsDbContext => authorsDbContext ?? throw new NullReferenceException();
+        protected AuthorsDbContext AuthorsDbContext => _authorsDbContext ?? throw new NullReferenceException();
 
         [SetUp]
-        public async Task Setup()
+        public Task Setup()
         {
+            var optionsBuilder = new DbContextOptionsBuilder<AuthorsDbContext>().UseSqlite(_connection);
 
-            const string inMemoryConnectionString = "DataSource=:memory:?cache=shared";
-            SqliteConnection connection = new SqliteConnection(inMemoryConnectionString);
-
-            var optionsBuilder = new DbContextOptionsBuilder<AuthorsDbContext>().UseSqlite(connection);
-
-            authorsDbContext = new AuthorsDbContext(optionsBuilder.Options);
-            await connection.OpenAsync();
-            DbInitializer.Initialize(authorsDbContext);
+            _authorsDbContext = new AuthorsDbContext(optionsBuilder.Options);
+            return DbInitializer.Initialize(_authorsDbContext);
         }
+
+        [TearDown]
+        public Task Teardown() => AuthorsDbContext.Database.EnsureDeletedAsync();
     }
 }

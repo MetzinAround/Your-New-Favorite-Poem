@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Your_New_Favorite_Poem.Models
 {
@@ -16,7 +13,7 @@ namespace Your_New_Favorite_Poem.Models
         }
         
         [Key, DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.Identity)]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public Author Author { get; set; }
 

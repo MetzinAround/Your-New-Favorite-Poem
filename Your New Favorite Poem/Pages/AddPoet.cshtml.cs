@@ -16,9 +16,7 @@ namespace Your_New_Favorite_Poem.Pages
         {
             _logger = logger;
             _authorsDbContext = authorsDbContext;
-
         }
-
 
         public string SubmissionResult { get; private set; } = "Submit Poem";
         public async Task OnPostSubmit(string authorName, string poemUrl, string poemName, string bio, string pictureUrl, string pictureAltText)

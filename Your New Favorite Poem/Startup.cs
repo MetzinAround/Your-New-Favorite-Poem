@@ -1,19 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Your_New_Favorite_Poem.Database;
 
 namespace Your_New_Favorite_Poem
-   
+
 {
     public class Startup
     {
@@ -25,16 +20,14 @@ namespace Your_New_Favorite_Poem
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public static void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
             services.AddDbContext<AuthorsDbContext>(options => options.UseMySQL(GetConnectionString()));
-            
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -46,7 +39,7 @@ namespace Your_New_Favorite_Poem
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-           
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -59,6 +52,7 @@ namespace Your_New_Favorite_Poem
                 endpoints.MapRazorPages();
             });
         }
+
         //https://stackoverflow.com/a/43740589/13741035
         static string GetConnectionString()
         {

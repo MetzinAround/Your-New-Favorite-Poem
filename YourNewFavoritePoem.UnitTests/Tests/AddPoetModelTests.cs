@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging.Abstractions;
 using NUnit.Framework;
@@ -35,16 +33,13 @@ namespace YourNewFavoritePoem.UnitTests.Tests
             //Assert
             Assert.AreEqual(authorsCount_initial + 1, authorsCount_final);
 
-            var newestAuthor = AuthorsDbContext.Authors.Last();
+            var newestAuthor = AuthorsDbContext.Authors.Single(x => x.Name == authorName);
             Assert.AreEqual(authorName, newestAuthor.Name);
             Assert.AreEqual(poemUrl, newestAuthor.Poems.First().URL.ToString());
             Assert.AreEqual(poemName, newestAuthor.Poems.First().Title);
             Assert.AreEqual(bio, newestAuthor.Bio);
             Assert.AreEqual(pictureUrl, newestAuthor.PictureURL?.ToString());
             Assert.AreEqual(pictureAltText, newestAuthor.PictureAltText);
-
-
-
         }
     }
 }
