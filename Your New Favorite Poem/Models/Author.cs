@@ -27,7 +27,7 @@ namespace Your_New_Favorite_Poem.Models
         public bool IsDeleted { get; set; }
 
         [DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.Identity)]
-        public DateTimeOffset CreatedAt { get; set; }
+        public DateTimeOffset CreatedAt { get; set; } 
 
         [DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.Computed)]
         public DateTimeOffset UpdatedAt { get; set; }

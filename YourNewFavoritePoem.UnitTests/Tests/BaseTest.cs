@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using Your_New_Favorite_Poem;
@@ -17,12 +18,16 @@ namespace YourNewFavoritePoem.UnitTests.Tests
         protected AuthorsDbContext AuthorsDbContext => authorsDbContext ?? throw new NullReferenceException();
 
         [SetUp]
-        public void Setup()
+        public async Task Setup()
         {
-            var optionsBuilder = new DbContextOptionsBuilder<AuthorsDbContext>()
-    .UseInMemoryDatabase("InMemoryDb");
+
+            const string inMemoryConnectionString = "DataSource=:memory:?cache=shared";
+            SqliteConnection connection = new SqliteConnection(inMemoryConnectionString);
+
+            var optionsBuilder = new DbContextOptionsBuilder<AuthorsDbContext>().UseSqlite(connection);
 
             authorsDbContext = new AuthorsDbContext(optionsBuilder.Options);
+            await connection.OpenAsync();
             DbInitializer.Initialize(authorsDbContext);
         }
     }

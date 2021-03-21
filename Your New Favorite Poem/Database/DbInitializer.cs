@@ -11,10 +11,8 @@ namespace Your_New_Favorite_Poem.Database
     {
         public static void Initialize(AuthorsDbContext authorsDbContext)
         {
-            if (!authorsDbContext.Database.IsInMemory())
-            { 
-                authorsDbContext.Database.Migrate();
-            }
+            authorsDbContext.Database.Migrate();
+
 
             if (authorsDbContext.Authors != null && !authorsDbContext.Authors.Any())
             {
