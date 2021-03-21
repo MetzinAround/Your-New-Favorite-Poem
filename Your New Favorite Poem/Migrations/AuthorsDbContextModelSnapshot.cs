@@ -28,9 +28,9 @@ namespace Your_New_Favorite_Poem.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTimeOffset>("CreatedAt")
-                        .ValueGeneratedOnAdd()
+                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("timestamp")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP()");
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
@@ -52,7 +52,7 @@ namespace Your_New_Favorite_Poem.Migrations
                     b.Property<DateTimeOffset>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("timestamp")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP()");
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.HasKey("Id");
 
@@ -70,9 +70,9 @@ namespace Your_New_Favorite_Poem.Migrations
                         .HasColumnType("varbinary(16)");
 
                     b.Property<DateTimeOffset>("CreatedAt")
-                        .ValueGeneratedOnAdd()
+                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("timestamp")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP()");
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
@@ -91,7 +91,7 @@ namespace Your_New_Favorite_Poem.Migrations
                     b.Property<DateTimeOffset>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("timestamp")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP()");
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.HasKey("Id");
 

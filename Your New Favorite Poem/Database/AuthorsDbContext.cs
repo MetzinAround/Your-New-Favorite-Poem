@@ -16,10 +16,10 @@ namespace Your_New_Favorite_Poem
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Poem>().HasOne(p => p.Author).WithMany(b => b.Poems);
-            modelBuilder.Entity<Author>().Property(b => b.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP()");
-            modelBuilder.Entity<Author>().Property(b => b.UpdatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP()");
-            modelBuilder.Entity<Poem>().Property(b => b.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP()");
-            modelBuilder.Entity<Poem>().Property(b => b.UpdatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP()");
+            modelBuilder.Entity<Author>().Property(b => b.CreatedAt).ValueGeneratedOnAddOrUpdate().HasDefaultValueSql("CURRENT_TIMESTAMP");
+            modelBuilder.Entity<Author>().Property(b => b.UpdatedAt).ValueGeneratedOnAddOrUpdate().HasDefaultValueSql("CURRENT_TIMESTAMP");
+            modelBuilder.Entity<Poem>().Property(b => b.CreatedAt).ValueGeneratedOnAddOrUpdate().HasDefaultValueSql("CURRENT_TIMESTAMP");
+            modelBuilder.Entity<Poem>().Property(b => b.UpdatedAt).ValueGeneratedOnAddOrUpdate().HasDefaultValueSql("CURRENT_TIMESTAMP");
         }
     }
 }
