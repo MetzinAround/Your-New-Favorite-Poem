@@ -9,7 +9,7 @@ using Your_New_Favorite_Poem;
 namespace Your_New_Favorite_Poem.Migrations
 {
     [DbContext(typeof(AuthorsDbContext))]
-    [Migration("20210321220507_UseGuidForPrimaryKey")]
+    [Migration("20210322181140_UseGuidForPrimaryKey")]
     partial class UseGuidForPrimaryKey
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
