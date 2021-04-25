@@ -1,7 +1,9 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using MySql.EntityFrameworkCore.Metadata;
+using Your_New_Favorite_Poem.Models;
 
 namespace Your_New_Favorite_Poem.Migrations
 {
@@ -15,14 +17,16 @@ namespace Your_New_Favorite_Poem.Migrations
             //instead of creating a whole new guid for authorId
             //https://www.codeproject.com/Articles/1193009/Changing-primary-key-data-type-in-EF-Core
 
-
             migrationBuilder.AddColumn<Guid>("Id2", "authors", "TEXT", nullable: false, defaultValueSql: "newid()");
             migrationBuilder.AddColumn<Guid>("Id2", "poems", "TEXT", nullable: false, defaultValueSql: "newid()");
+
 
             migrationBuilder.DropForeignKey("FK_poems_authors_AuthorId", "poems");
 
             migrationBuilder.DropPrimaryKey("PK_authors", "authors");
             migrationBuilder.DropPrimaryKey("PK_poems", "poems");
+
+            migrationBuilder.Sql("update [dbo].poems set AuthorId=t.Id2 FROM[dbo].poems i inner join dbo.authors t on i.AuthorId = t.Id");
 
             migrationBuilder.DropColumn("Id", "authors");
             migrationBuilder.DropColumn("Id", "poems");
