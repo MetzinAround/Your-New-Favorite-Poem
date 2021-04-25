@@ -34,8 +34,8 @@ namespace Your_New_Favorite_Poem.Migrations
             migrationBuilder.RenameColumn("Id2", "authors", "Id");
             migrationBuilder.RenameColumn("Id2", "poems", "Id");
 
-            migrationBuilder.AddPrimaryKey("PK_authors", "authors", "Id");
-            migrationBuilder.AddPrimaryKey("PK_poems", "poems", "Id");
+            migrationBuilder.AddPrimaryKey("PK_authors", "authors", "Id").Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn);
+            migrationBuilder.AddPrimaryKey("PK_poems", "poems", "Id").Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn);
 
             migrationBuilder.AddForeignKey("FK_poems_authors_AuthorId", "poems", "AuthorId", "authors", principalColumn: "Id");
 
@@ -241,7 +241,7 @@ namespace Your_New_Favorite_Poem.Migrations
 
         public void Convert(MigrationBuilder migrationBuilder, string tableName, string pKConstraintName, params string[] children)
         {
-            
+
 
             //foreach (var child in children)
             //{
@@ -259,7 +259,7 @@ namespace Your_New_Favorite_Poem.Migrations
             //    Sql($"update c set {tableName}_Id=p.Id2 from {child}s c inner join {tableName}s p on p.Id=c.old_{tableName}_Id");
             //    DropColumn($"dbo.{child}s", $"old_{tableName}_Id");
             //}
-            
+
             //foreach (var child in children)
             //{
             //    CreateIndex($"dbo.{child}", $"{tableName}_Id");
